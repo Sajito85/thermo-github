@@ -10,15 +10,13 @@
 
   <style>
     :root{
-      /* easy site-wide tuning if needed */
       --brand-bg:#003366;
-      --brand-accent:#d32f2f; /* hero red */
+      --brand-accent:#d32f2f;
       --text:#333;
       --text-on-dark:#fff;
-      --container-max:72ch; /* readable line length */
+      --container-max:72ch;
     }
 
-    /* Base */
     html{-webkit-text-size-adjust:100%;}
     body{
       font-family:'Inter','Open Sans',Arial,sans-serif;
@@ -31,7 +29,6 @@
       hyphens:auto;
     }
 
-    /* Header */
     header{
       background:var(--brand-bg);
       color:var(--text-on-dark);
@@ -49,7 +46,7 @@
       max-width:320px;
       object-fit:contain;
       padding:5px;
-      background-color:#fff;   /* contrast */
+      background-color:#fff;
       border-radius:2px;
     }
     .header-text{flex:1 1 320px;text-align:center;}
@@ -62,7 +59,6 @@
       letter-spacing:.2px;
     }
 
-    /* Nav */
     nav{margin-top:6px;}
     nav a{
       color:#fff;
@@ -87,31 +83,29 @@
       color:#fff;
     }
     .hero-overlay{
-      background-color:rgba(0,0,0,0); /* keep image vivid */
-      padding:40px 20px;
+      background:rgba(0,0,0,0.45); /* semi-transparent black overlay */
+      padding:30px 20px;
       border-radius:8px;
       max-width:min(100%, var(--container-max));
     }
     .hero-title{
       font-family:'Merriweather',serif;
       font-weight:700;
-      color:var(--brand-accent);
-      /* fluid type: won’t overflow on phones */
+      color:#fff;
       font-size:clamp(22px,6.4vw,40px);
       line-height:1.2;
       margin:0 0 10px 0;
-      text-shadow:none; /* clean look */
+      text-shadow:2px 2px 6px rgba(0,0,0,0.6); /* soft shadow */
     }
     .hero-subtitle{
       font-weight:600;
-      color:#fff;
+      color:#f1f1f1;
       font-size:clamp(16px,4.4vw,22px);
       line-height:1.4;
       margin:0;
-      text-shadow:none; /* avoid fuzzy text on mobile */
+      text-shadow:1px 1px 5px rgba(0,0,0,0.7);
     }
 
-    /* Main */
     main{
       padding:40px 20px;
       max-width:900px;
@@ -123,7 +117,6 @@
       line-height:1.25;
     }
 
-    /* Partners */
     .collaborators .logos{
       display:flex;
       justify-content:center;
@@ -141,7 +134,6 @@
       border-radius:4px;
     }
 
-    /* Footer */
     footer{
       background:var(--brand-bg);
       color:#fff;
@@ -150,7 +142,6 @@
       margin-top:40px;
     }
 
-    /* Responsive tweaks */
     @media (max-width: 900px){
       .hero{height:520px;}
     }
@@ -163,7 +154,6 @@
     }
     @media (max-width: 480px){
       .hero{height:360px;padding:8px;}
-      /* ensure no overflow on very small screens */
       .hero-title{font-size:clamp(20px,7.2vw,28px);line-height:1.25;}
       .hero-subtitle{font-size:clamp(14px,4.8vw,18px);}
       nav a{margin:4px 6px;}
@@ -171,7 +161,6 @@
       p{text-align:left;}
     }
 
-    /* Media elements scale */
     img, video{max-width:100%;height:auto;}
   </style>
 </head>
