@@ -1,34 +1,111 @@
+/* === Thermo-Fluids site: modern.css (minimal + clean) === */
+
 :root{
-  --bg:#0b0c10; --panel:#11131a; --text:#eef1f5; --muted:#b9c0cc; --primary:#e53935;
-  --max:1100px; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.15);
+  --bg:#0b0c10;
+  --panel:#11131a;
+  --text:#eef1f5;
+  --muted:#b9c0cc;
+  --primary:#e53935;
+  --ring:rgba(229,57,53,.25);
+  --max:1100px;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(0,0,0,.15);
 }
-*{box-sizing:border-box}
+
+*{ box-sizing:border-box }
+html,body{ height:100% }
+
 body{
-  margin:0; background:#0b0c10; color:var(--text);
-  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
-  line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  margin:0;
+  background:#0b0c10;          /* flat, low-distraction */
+  color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
-a{color:var(--text); text-decoration:none} a:hover{opacity:.9}
-main,.container{max-width:var(--max); margin:0 auto; padding:clamp(16px,2.5vw,28px)}
-section{margin:clamp(28px,6vw,60px) 0}
-h1,h2,h3{margin:0 0 .6em; line-height:1.2}
-h1{font-size:clamp(1.9rem,3vw+1rem,2.6rem)} h2{font-size:clamp(1.4rem,2vw+.8rem,1.9rem)}
-p{color:var(--muted)}
-/* Nav (expects <nav class="site-nav">) */
+
+/* Layout rhythm */
+main,.container{
+  width:100%;
+  max-width:var(--max);
+  margin-inline:auto;
+  padding:clamp(16px,2.5vw,28px);
+}
+section{ margin:clamp(28px,6vw,60px) 0 }
+
+/* Type */
+h1,h2,h3{ line-height:1.2; margin:0 0 .6em }
+h1{ font-size:clamp(1.9rem,3vw + 1rem,2.6rem) }
+h2{ font-size:clamp(1.4rem,2vw + .8rem,1.9rem) }
+p{ color:var(--muted) }
+
+/* Links & focus */
+a{ color:var(--text); text-decoration:none }
+a:hover{ opacity:.9 }
+a:focus{
+  outline:2px solid var(--ring);
+  outline-offset:3px; border-radius:8px;
+}
+
+/* ---- Minimal top navigation (ribbon) ---- */
 nav.site-nav{
-  position:sticky; top:0; z-index:50; display:flex; gap:8px; flex-wrap:wrap;
-  padding:10px clamp(12px,2vw,22px); backdrop-filter:saturate(140%) blur(8px);
-  background:rgba(10,12,18,.55); border-bottom:1px solid rgba(255,255,255,.06);
+  position:sticky; top:0; z-index:50;
+  display:flex; gap:18px; flex-wrap:wrap;
+  align-items:center; justify-content:center;
+  padding:10px 12px;
+  background:#0b0c10;                       /* flat background */
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:none;
 }
-nav.site-nav a{padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.08)}
-nav.site-nav a.active, nav.site-nav a[aria-current="page"]{
-  background:rgba(229,57,53,.12); border-color:rgba(229,57,53,.35);
+nav.site-nav a{
+  padding:10px 6px;
+  font-weight:600;
+  border:none; border-radius:0;
+  opacity:.85;
+  transition:opacity .2s ease;
 }
-/* Cards + Grid */
+nav.site-nav a:hover{ opacity:1 }
+nav.site-nav a.active,
+nav.site-nav a[aria-current="page"]{
+  opacity:1;
+  border-bottom:2px solid var(--primary);   /* thin underline for active */
+}
+
+/* Cards & grid utilities (non-destructive: add classes in HTML) */
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-  border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
-  box-shadow:var(--shadow); padding:clamp(16px,2.5vw,24px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:clamp(16px,2.5vw,24px);
 }
-.grid{display:grid; gap:clamp(14px,2vw,22px); grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-img{max-width:100%; height:auto; border-radius:12px}
+.grid{
+  display:grid;
+  gap:clamp(14px,2vw,22px);
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+}
+.grid .card{ height:100% }
+
+/* Media defaults */
+img{ max-width:100%; height:auto; border-radius:12px }
+figure{ margin:0 }
+figcaption{ color:var(--muted); font-size:.9rem; margin-top:.5rem }
+
+/* Tables (e.g., publications) */
+table{ width:100%; border-collapse:collapse }
+th,td{ padding:12px; border-bottom:1px solid rgba(255,255,255,.08) }
+tbody tr:hover{ background:rgba(255,255,255,.02) }
+
+/* Footer */
+footer{
+  margin-top:60px; padding:28px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:var(--muted);
+}
+
+/* Mobile tweaks */
+@media (max-width:720px){
+  nav.site-nav{ justify-content:flex-start; overflow-x:auto }
+  nav.site-nav::-webkit-scrollbar{ height:0 } /* hidden scroll bar */
+}
