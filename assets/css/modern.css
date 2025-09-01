@@ -1,4 +1,4 @@
-/* === Thermo-Fluids site: modern.css (minimal + clean) === */
+/* === Thermo-Fluids site: modern.css (layout/typography only) === */
 
 :root{
   --bg:#0b0c10;
@@ -17,7 +17,7 @@ html,body{ height:100% }
 
 body{
   margin:0;
-  background:#0b0c10;          /* flat, low-distraction */
+  background:#0b0c10;          /* page background only */
   color:var(--text);
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
   line-height:1.6;
@@ -48,31 +48,7 @@ a:focus{
   outline-offset:3px; border-radius:8px;
 }
 
-/* ---- Minimal top navigation (ribbon) ---- */
-nav.site-nav{
-  position:sticky; top:0; z-index:50;
-  display:flex; gap:18px; flex-wrap:wrap;
-  align-items:center; justify-content:center;
-  padding:10px 12px;
-  background:#0b0c10;                       /* flat background */
-  border-bottom:1px solid rgba(255,255,255,.08);
-  backdrop-filter:none;
-}
-nav.site-nav a{
-  padding:10px 6px;
-  font-weight:600;
-  border:none; border-radius:0;
-  opacity:.85;
-  transition:opacity .2s ease;
-}
-nav.site-nav a:hover{ opacity:1 }
-nav.site-nav a.active,
-nav.site-nav a[aria-current="page"]{
-  opacity:1;
-  border-bottom:2px solid var(--primary);   /* thin underline for active */
-}
-
-/* Cards & grid utilities (non-destructive: add classes in HTML) */
+/* Cards & grid utilities (apply by adding classes in HTML) */
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
   border:1px solid rgba(255,255,255,.08);
@@ -104,8 +80,7 @@ footer{
   color:var(--muted);
 }
 
-/* Mobile tweaks */
+/* Mobile tweaks (no nav overrides) */
 @media (max-width:720px){
-  nav.site-nav{ justify-content:flex-start; overflow-x:auto }
-  nav.site-nav::-webkit-scrollbar{ height:0 } /* hidden scroll bar */
+  main,.container{ padding:20px }
 }
