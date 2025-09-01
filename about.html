@@ -2,235 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About – Thermo-Fluids & Energy Systems (TFES) Research Group</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermo-Fluids & Energy Systems (TFES) Research Group</title>
   <style>
-    :root{
-      --brand:#003366;
-      --accent:#d32f2f;
-      --bg:#f5f7fb;
-      --card:#ffffff;
-      --text:#1f2937;
-      --muted:#4b5563;
-      --max: 1200px;
+    * {
+      box-sizing: border-box;
     }
 
-    /* Base */
-    *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
-    body{
-      margin:0;
-      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.6;
-      font-size:clamp(15px,1.1vw + 12px,18px);
-    }
-    h1,h2,h3,h4{font-family:'Merriweather', Georgia, "Times New Roman", serif; line-height:1.25; margin:0 0 .5rem}
-    p{margin:.5rem 0 1rem}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{width:100%; max-width:var(--max); margin:0 auto; padding:0 20px}
-
-    /* Header / Nav */
-    header{
-      position:sticky; top:0; z-index:50;
-      background:var(--brand); color:#fff;
-      box-shadow:0 6px 24px rgba(0,0,0,.12);
-    }
-    .header-bar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:12px 0; flex-wrap:wrap;
-    }
-    .brand{display:flex; align-items:center; gap:12px}
-    .brand img{
-      height:56px; width:auto; object-fit:contain; background:#fff;
-      border-radius:4px; padding:4px;
-    }
-    .title-wrap{display:flex; flex-direction:column; align-items:flex-start}
-    .site-title{
-      font:700 clamp(18px,2.2vw,26px) 'Merriweather',serif; letter-spacing:.2px; color:#fff; margin:0;
-    }
-    .site-sub{font-size:12.5px; color:#e7ecf6; margin-top:2px}
-
-    nav.site-nav{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
-    nav.site-nav a{
-      color:#fff; font-weight:600; padding:8px 10px; border-radius:8px;
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    nav.site-nav a:hover{background:rgba(255,255,255,.12); text-decoration:none}
-    nav.site-nav a.active{background:#fff; color:var(--brand); box-shadow:0 2px 0 0 #fff}
-
-    /* Page header band */
-    .page-hero{
-      background: linear-gradient(135deg, rgba(0,0,0,.15), rgba(0,0,0,.35)), url('images/Clock Tower.jpg') center/cover no-repeat;
-      color:#fff; text-align:center;
-      padding: clamp(36px, 8vw, 80px) 20px;
-      box-shadow: inset 0 -80px 80px rgba(0,0,0,.15);
-    }
-    .page-hero h1{
-      font-size: clamp(26px, 4.2vw, 42px);
-      text-shadow: 2px 2px 6px rgba(0,0,0,.45);
-    }
-    .page-hero p{
-      max-width: 80ch; margin: .5rem auto 0; color:#eef2f7;
-      font-weight:600;
-      text-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
-    /* Sections / Cards */
-    .section{padding:48px 0}
-    .lead{max-width:85ch; color:var(--muted)}
-    .grid{display:grid; gap:20px; grid-template-columns: repeat(12, 1fr)}
-    .card{
-      grid-column: span 12;
-      background:var(--card); border:1px solid #e9eef5; border-radius:16px;
-      box-shadow:0 10px 30px rgba(16,24,40,.05);
-      padding:20px;
-      transition: transform .2s ease, box-shadow .2s ease;
+    /* Top image */
+    .top-image {
+      width: 100%;
+      height: auto;
+      display: block;
     }
-    .card:hover{ transform:translateY(-3px); box-shadow:0 18px 44px rgba(16,24,40,.08) }
-    .card h3{color:var(--accent); margin-bottom:.25rem}
 
-    .kpi{
-      font-size: clamp(26px, 3.4vw, 34px);
-      font-weight:900; color:var(--brand);
-      margin-bottom:.25rem;
+    /* Fixed header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #003366;
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
-    .muted{color:var(--muted)}
 
-    /* Logos row */
-    .logo-row{display:flex; flex-wrap:wrap; gap:16px; align-items:center}
-    .logo-row img{
-      height:70px; width:auto; background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:10px;
-      transition:transform .15s ease;
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
     }
-    .logo-row img:hover{transform:scale(1.03)}
 
-    /* Footer */
-    footer{
-      margin-top:40px; background:var(--brand); color:#fff;
-      padding:26px 0;
+    nav {
+      margin-top: 10px;
     }
-    .footer-inner{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between}
-    footer .small{opacity:.9; font-size:14px}
 
-    /* Responsive grid helpers */
-    @media (min-width:640px){
-      .span-6{grid-column: span 6}
-      .span-4{grid-column: span 4}
-      .span-3{grid-column: span 3}
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Spacer to push content below fixed header */
+    .spacer {
+      height: 120px; /* match header height */
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #003366;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background-color: #e6f0ff;
+      color: #003366;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1.05em;
+    }
+
+    section {
+      margin-bottom: 40px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container header-bar">
-    <div class="brand">
-      <img src="images/LOGO_full name.jpeg" alt="TFES Logo">
-      <div class="title-wrap">
-        <h1 class="site-title">Thermo-Fluids &amp; Energy Systems (TFES) Research Group</h1>
-        <div class="site-sub">Technological University Dublin</div>
-      </div>
-    </div>
+  <!-- Top image first -->
+  <img src="images/Wind-Turbine-Tallaght-Campus.jpg" alt="Thermo-Fluids & Energy Systems (TFES) Research Group" class="top-image" />
 
-    <nav class="site-nav" aria-label="Primary">
+  <!-- Fixed header below image -->
+  <header>
+    <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
+    <nav>
       <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
+      <a href="about.html">About</a>
       <a href="research.html">Research</a>
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="contact.html">Contact</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<section class="page-hero">
-  <div class="container">
-    <h1>About the TFES Research Group</h1>
-    <p>We advance thermo-fluids science for energy-efficient, resilient systems — from data-centre cooling and hybrid digital twins to micro-scale jet actuation and advanced manufacturing.</p>
-  </div>
-</section>
+  <!-- Spacer for fixed header -->
+  <div class="spacer"></div>
 
-<main>
-  <section class="section">
-    <div class="container">
-      <h2>Mission &amp; Focus</h2>
-      <p class="lead">Our work bridges rigorous experimentation and high-fidelity simulation with real-time data and control. We target tangible impact: lower energy, higher reliability, and faster design cycles for thermal systems.</p>
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p>
+        Our group conducts research in thermo-fluid dynamics, multiphase flows, turbulence, and thermal energy systems.
+        We aim to advance fundamental understanding and develop innovative solutions for energy and environmental applications.
+      </p>
+    </section>
 
-      <div class="grid" style="margin-top:18px">
-        <div class="card span-6">
-          <h3>What we do</h3>
-          <ul>
-            <li>Physics-informed simulation of turbulent &amp; multi-scale flows</li>
-            <li>Hybrid <em>digital twins</em>: CFD + reduced-order models + sensor data</li>
-            <li>Energy-efficient cooling hardware (air amplifiers, ejectors)</li>
-            <li>Experimental rigs, sensing, autonomy &amp; control</li>
-          </ul>
-        </div>
-
-        <div class="card span-6">
-          <h3>Why it matters</h3>
-          <ul>
-            <li>Reduce energy &amp; carbon in digital infrastructure</li>
-            <li>Improve system resilience &amp; uptime</li>
-            <li>Accelerate design via real-time surrogate models</li>
-            <li>Bridge lab demonstrators to industrial deployment</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <h2>Numbers at a glance</h2>
-      <div class="grid" style="margin-top:18px">
-        <div class="card span-3">
-          <div class="kpi">20+</div>
-          <div class="muted">peer-reviewed papers &amp; patents across TFES themes.</div>
-        </div>
-        <div class="card span-3">
-          <div class="kpi">€X.Xm</div>
-          <div class="muted">funding across national &amp; international programmes.</div>
-        </div>
-        <div class="card span-3">
-          <div class="kpi">10+</div>
-          <div class="muted">active collaborations with academia &amp; industry.</div>
-        </div>
-        <div class="card span-3">
-          <div class="kpi">5</div>
-          <div class="muted">rigs &amp; demonstrators for rapid validation.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <h2>Selected collaborators</h2>
-      <div class="logo-row" style="margin-top:12px">
-        <img src="images/images.jpg" alt="University College Cork">
-        <img src="images/ERBE-Full-Log.png" alt="ERBE">
-        <img src="images/MaREI_300.png" alt="MaREI">
-        <img src="images/SEAI.png" alt="SEAI">
-        <img src="images/TUD_RGB.png" alt="TU Dublin">
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div class="small">&copy; 2025 TFES – Technological University Dublin</div>
-    <div class="small">Email: <a href="mailto:sajad.alimohammadi@tudublin.ie" style="color:#fff; text-decoration:underline">sajad.alimohammadi@tudublin.ie</a></div>
-  </div>
-</footer>
+    <section>
+      <h2>Research Themes</h2>
+      <ul>
+        <li>Multi-phase & Free-Surface Flows</li>
+        <li>Thermal Energy & Storage</li>
+        <li>Turbulence & Aerodynamics</li>
+      </ul>
+    </section>
+  </main>
 
 </body>
 </html>
