@@ -1,245 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="assets/css/modern.css">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thermo-Fluids & Energy Systems (TFES) Research Group</title>
-
-  <!-- Professional fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publications | Thermo-Fluids & Energy Systems (TFES) Research Group</title>
   <style>
-    :root{
-      --brand-bg:#003366;
-      --brand-accent:#d32f2f;
-      --text:#333;
-      --text-on-dark:#fff;
-      --container-max:72ch;
-    }
-
-    html{-webkit-text-size-adjust:100%;}
-    body{
-      font-family:'Inter','Open Sans',Arial,sans-serif;
-      margin:0;
-      line-height:1.6;
-      background-color:#f4f4f4;
-      color:var(--text);
-      font-size:clamp(15px,1.6vw + 12px,18px);
-      overflow-wrap:anywhere;
-      hyphens:auto;
-    }
-
-    header{
-      background:var(--brand-bg);
-      color:var(--text-on-dark);
-      padding:20px;
-    }
-    .header-content{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-    .header-logo{
-      height:120px;
-      max-width:320px;
-      object-fit:contain;
-      padding:5px;
-      background-color:#fff;
-      border-radius:2px;
-    }
-    .header-text{flex:1 1 320px;text-align:center;}
-    .header-text h1{
-      font-family:'Merriweather',serif;
-      font-weight:700;
-      margin:0 0 8px 0;
-      line-height:1.2;
-      font-size:clamp(22px,3.6vw,34px);
-      letter-spacing:.2px;
-    }
-
-    nav{margin-top:6px;}
-    nav a{
-      color:#fff;
-      margin:0 10px;
-      text-decoration:none;
-      font-weight:600;
-      white-space:nowrap;
-    }
-    nav a:hover{text-decoration:underline;}
-    .site-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
-
-    /* Hero */
-    .hero{
-      background:url('images/Clock Tower.jpg') no-repeat center center;
-      background-size:cover;
-      height:700px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      text-align:center;
-      color:#fff;
-    }
-    .hero-overlay{
-      background:rgba(0,0,0,0.45);
-      padding:30px 20px;
-      border-radius:8px;
-      max-width:min(100%, var(--container-max));
-      opacity:0;
-      transform:translateY(20px);
-      animation:fadeInUp 1.2s ease-out forwards;
-    }
-    .hero-title{
-      font-family:'Merriweather',serif;
-      font-weight:700;
-      color:#fff;
-      font-size:clamp(22px,6.4vw,40px);
-      line-height:1.2;
-      margin:0 0 10px 0;
-      text-shadow:2px 2px 6px rgba(0,0,0,0.6);
-    }
-    .hero-subtitle{
-      font-weight:600;
-      color:#f1f1f1;
-      font-size:clamp(16px,4.4vw,22px);
-      line-height:1.4;
-      margin:0;
-      text-shadow:1px 1px 5px rgba(0,0,0,0.7);
-      opacity:0;
-      transform:translateY(10px);
-      animation:fadeInUp 1.2s ease-out forwards;
-      animation-delay:.5s;
-    }
-
-    /* Keyframes for fade-in */
-    @keyframes fadeInUp{
-      0%{opacity:0; transform:translateY(20px);}
-      100%{opacity:1; transform:translateY(0);}
-    }
-
-    main{
-      padding:40px 20px;
-      max-width:900px;
-      margin:auto;
-    }
-    section h2, section h3{
-      color:#FF0000;
-      font-family:'Merriweather',serif;
-      line-height:1.25;
-    }
-
-    .collaborators .logos{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:20px;
-      margin-top:20px;
-    }
-    .collaborators .logos img{
-      height:80px;
-      object-fit:contain;
-      padding:10px;
-      background-color:#fff;
-      border:1px solid #ddd;
-      border-radius:4px;
-    }
-
-    footer{
-      background:var(--brand-bg);
-      color:#fff;
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-    }
-
-    @media (max-width: 900px){
-      .hero{height:520px;}
-    }
-    @media (max-width: 768px){
-      .hero{height:420px;}
-      .header-content{flex-direction:column;text-align:center;}
-      .header-logo{height:100px;margin:6px 0;}
-      .header-text{order:-1;}
-      .collaborators .logos img{height:60px;}
-    }
-    @media (max-width: 480px){
-      .hero{height:360px;padding:8px;}
-      .hero-title{font-size:clamp(20px,7.2vw,28px);line-height:1.25;}
-      .hero-subtitle{font-size:clamp(14px,4.8vw,18px);}
-      nav a{margin:4px 6px;}
-      .header-logo{height:88px;}
-      p{text-align:left;}
-    }
-
-    img, video{max-width:100%;height:auto;}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.6;max-width:960px;margin:2rem auto;padding:0 1rem;color:#333}
+    h1{font-size:2rem;border-bottom:2px solid #ccc;padding-bottom:.5rem;margin-top:1.25rem}
+    h2{margin-top:2rem;font-size:1.35rem;border-left:4px solid #003366;padding-left:.6rem}
+    .pub-entry{margin:.9rem 0 1.1rem}
+    .pub-title{font-weight:700;font-size:1.05rem}
+    .pub-authors,.pub-venue,.pub-links{margin:.25rem 0}
+    .pub-links a{margin-right:1rem;text-decoration:none;color:#0366d6}
+    .pub-links a:hover{text-decoration:underline;color:#024ea2}
+    .small{font-size:.92rem;color:#555}
+    .note{background:#f6f8fb;border:1px solid #e3e8f3;padding:.75rem 1rem;border-radius:8px}
+    /* Header strip */
+    .bg-dark{background-color:#003366}.text-white{color:#fff}.py-3{padding-top:1rem;padding-bottom:1rem}
+    .mx-2{margin:0 .5rem}.mt-2{margin-top:.5rem}
+    .container{max-width:960px;margin:0 auto;padding:0 1rem;text-align:center}
+    nav a{color:#fff;text-decoration:none;font-weight:600}nav a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="header-content">
-      <img src="images/LOGO_full name.jpeg" alt="TFES Logo" class="header-logo left-logo" loading="lazy" />
-
-      <div class="header-text">
-        <h1>Thermo-Fluids &amp; Energy Systems (TFES) Research Group</h1>
-        <nav class="site-nav">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="research.html">Research</a>
-          <a href="people.html">People</a>
-          <a href="publications.html">Publications</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </div>
-
-      <img src="images/TUD_RGB.png" alt="TU Dublin Logo" class="header-logo right-logo" loading="lazy" />
+  <header class="bg-dark text-white py-3">
+    <div class="container header-text">
+      <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
+      <nav class="mt-2">
+        <a href="index.html" class="mx-2">Home</a>
+        <a href="about.html" class="mx-2">About</a>
+        <a href="research.html" class="mx-2">Research</a>
+        <a href="people.html" class="mx-2">People</a>
+        <a href="publications.html" class="mx-2">Publications</a>
+        <a href="contact.html" class="mx-2">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-overlay">
-      <h2 class="hero-title">
-        Exploring Thermo-Fluids for Smarter Energy Systems and a Sustainable Digital World
-      </h2>
-      <p class="hero-subtitle">
-        Based at Technological University Dublin, led by Dr. Sajad Alimohammadi
-      </p>
+  <h1>Publications</h1>
+  <p class="note small">
+    Compiled from <a href="https://scholar.google.com/citations?hl=en&user=qVAzBjwAAAAJ" target="_blank" rel="noopener">Google Scholar</a> and 
+    <a href="https://researchprofiles.tudublin.ie/en/persons/sajad-alimohammadi-2/publications/" target="_blank" rel="noopener">TU Dublin Research (Pure)</a>. 
+    Last updated: 1&nbsp;September&nbsp;2025.
+  </p>
+
+  <!-- ===== 2025 ===== -->
+  <h2>2025</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">Experimental investigation of a wall-bounded dual jet flow for varying Reynolds number: Flow visualisation, hydrodynamic characteristics, and associated heat transfer</div>
+    <div class="pub-authors">P. J. Murphy, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>International Journal of Thermal Sciences</em> 211:109699 (May&nbsp;2025)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1016/j.ijthermalsci.2025.109699" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Experimental investigation of the effect of the offset ratio on the flow characteristics and heat transfer behaviour of a wall-bounded dual jet flow</div>
+    <div class="pub-authors">P. J. Murphy, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>International Journal of Thermofluids</em> 26:101125 (Mar&nbsp;2025)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1016/j.ijft.2025.101125" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <!-- ===== 2024 ===== -->
+  <h2>2024</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">Micromixing strategies for efficient mixing processes: a comprehensive review</div>
+    <div class="pub-authors">D. Soltani, T. Persoons, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>Journal of Micromechanics and Microengineering</em> 34(11):113001 (Nov&nbsp;2024)</div>
+    <div class="pub-links">
+      <a href="https://doi.org/10.1088/1361-6439/ad809a" target="_blank" rel="noopener">DOI</a>
+      <a href="https://researchprofiles.tudublin.ie/en/publications/micromixing-strategies-for-efficient-mixing-processes-a-comprehen" target="_blank" rel="noopener">Publisher</a>
     </div>
-  </section>
+  </div>
 
-  <main>
-    <section>
-      <h3>Latest News</h3>
-      <ul>
-        <li><strong>May 2025:</strong> New journal article by Murphy, Alimohammadi &amp; O’Shaughnessy in International Journal of Thermal Sciences (dual jet flow; PIV &amp; heat transfer).</li>
-        <li><strong>Mar 2025:</strong> New article by Murphy, Alimohammadi &amp; O’Shaughnessy in International Journal of Thermofluids (offset ratio effects in dual jet flow).</li>
-        <li><strong>Nov 2024:</strong> Delara Soltani, Prof. Tim Persoons &amp; Dr. Sajad Alimohammadi publish an invited review “Micromixing strategies for efficient mixing processes” in Journal of Micromechanics and Microengineering (Open Access).</li>
-        <li><strong>Sept 2024:</strong> Delara Soltani wins 3rd Place at the 27th Sir Bernard Crossland Symposium (Queen’s University Belfast).</li>
-        <li><strong>2023–2024:</strong> Eoin H. Oude Essink awarded a Fulbright (visiting researcher at Purdue University’s Cooling Technologies Research Center).</li>
-        <li><strong>Feb 2024:</strong> TU Dublin highlights Dr. Sajad Alimohammadi for the Early Career Researcher Award.</li>
-        <li><strong>Nov 2024:</strong> Dr. Robiul Hossain co-authors a systematic review on indoor soundscapes and psycho-acoustics.</li>
-        <li><strong>2020:</strong> Dr. Sajad Alimohammadi wins the Harvey Rosten Award for Excellence.</li>
-      </ul>
-    </section>
+  <div class="pub-entry">
+    <div class="pub-title">Two-Dimensional Dual Jets—A Comprehensive Review of Experimental and Numerical Analyses</div>
+    <div class="pub-authors">P. J. Murphy, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>Energies</em> 17(17):4487 (Sep&nbsp;2024)</div>
+    <div class="pub-links">
+      <a href="https://doi.org/10.3390/en17174487" target="_blank" rel="noopener">DOI</a>
+      <a href="https://www.mdpi.com/1996-1073/17/17/4487" target="_blank" rel="noopener">Publisher</a>
+    </div>
+  </div>
 
-    <section class="collaborators">
-      <h2>Our Partners</h2>
-      <div class="logos">
-        <img src="images/images.jpg" alt="University College Cork" loading="lazy" />
-        <img src="images/ERBE-Full-Log.png" alt="University of Galway" loading="lazy" />
-        <img src="images/MaREI_300.png" alt="MaREI" loading="lazy" />
-        <img src="images/SEAI.png" alt="SEAI" loading="lazy" />
-      </div>
-    </section>
-  </main>
+  <div class="pub-entry">
+    <div class="pub-title">Thermal Performance Comparison of an Adjustable Air Amplifier with Rotary Fans</div>
+    <div class="pub-authors">D. W. Salter, E. H. Oude Essink, G. O’Brien, T. Persoons, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>THERMINIC 2024</em> (Toulouse), IEEE (Sep&nbsp;2024)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1109/THERMINIC62015.2024.10732346" target="_blank" rel="noopener">DOI</a></div>
+  </div>
 
-  <footer>
-    &copy; 2025 Thermo-Fluids &amp; Energy Systems (TFES) Research Group – Technological University Dublin
-  </footer>
+  <div class="pub-entry">
+    <div class="pub-title">Experimental investigation of dual jet flow past a heated surface: Effect of Reynolds number</div>
+    <div class="pub-authors">P. J. Murphy, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>International Journal of Heat and Mass Transfer</em> 218:124786 (Jan&nbsp;2024)</div>
+    <div class="pub-links">
+      <a href="https://doi.org/10.1016/j.ijheatmasstransfer.2023.124786" target="_blank" rel="noopener">DOI</a>
+      <a href="https://researchprofiles.tudublin.ie/en/publications/experimental-investigation-of-dual-jet-flow-past-a-heated-surface" target="_blank" rel="noopener">Publisher</a>
+    </div>
+  </div>
 
+  <div class="pub-entry">
+    <div class="pub-title">A combined experimental and numerical approach for heat transfer enhancement in a minichannel using half-rectified pulsating flows</div>
+    <div class="pub-authors">P. S. Kumavat, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>Journal of Physics: Conference Series</em> 2766:012180 (May&nbsp;2024)</div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/a-combined-experimental-and-numerical-approach-for-heat-transfer" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Effect of Adjacent Synthetic Jets on Mass Transfer in Microchannels</div>
+    <div class="pub-authors">D. Soltani, T. Persoons, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>ASME MNHMT 2024</em> (Proceedings V001T08A006)</div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/effect-of-adjacent-synthetic-jets-on-mass-transfer-in-microchanne" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2023 ===== -->
+  <h2>2023</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">An Experimental-Numerical Study of Heat Transfer Enhancement in a Minichannel Using Asymmetric Pulsating Flows</div>
+    <div class="pub-authors">P. S. Kumavat, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>IEEE Transactions on Components, Packaging and Manufacturing Technology</em> 13(8):1147–1154 (Aug&nbsp;2023)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1109/TCPMT.2023.3299085" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Experimental Investigation of Heat Transfer to a Dual Jet Flow with Varying Velocity Ratio</div>
+    <div class="pub-authors">P. J. Murphy, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>ITherm 2023</em> (IEEE)</div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/experimental-investigation-of-heat-transfer-to-a-dual-jet-flow-wi" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2022 ===== -->
+  <h2>2022</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">A computational conjugate heat transfer study of a rectangular minichannel undergoing sinusoidal flow pulsations</div>
+    <div class="pub-authors">P. S. Kumavat, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>International Journal of Thermal Sciences</em> 182:107790 (Dec&nbsp;2022)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1016/j.ijthermalsci.2022.107790" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">An Analysis of the Energy Infrastructure in Generic Data Centres</div>
+    <div class="pub-authors">Y. O. Abdelsalam, T. Persoons, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>THERMINIC 2022</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/an-analysis-of-the-energy-infrastructure-in-generic-data-centres" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Experimental Analysis of Heat Transfer to a Dual Jet Flow: Effect of Reynolds Number</div>
+    <div class="pub-authors">P. Murphy, <strong>S. Alimohammadi</strong>, S. O’Shaughnessy</div>
+    <div class="pub-venue"><em>THERMINIC 2022</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/experimental-analysis-of-heat-transfer-to-a-dual-jet-flow-effect" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Heat Transfer Enhancement in a Minichannel Due to Asymmetric Sinusoidal Pulsating Flows</div>
+    <div class="pub-authors">P. S. Kumavat, <strong>S. Alimohammadi</strong>, S. M. O’Shaughnessy</div>
+    <div class="pub-venue"><em>THERMINIC 2022</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/heat-transfer-enhancement-in-a-minichannel-due-to-asymmetric-sinu" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Numerical Investigation of Adjustable Air Amplifiers as an Alternative to Fans in Data Centre Servers</div>
+    <div class="pub-authors">E. H. Oude Essink, T. Persoons, G. O’Brien, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>ITherm 2022</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/numerical-investigation-of-adjustable-air-amplifiers-as-an-altern" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Parametric Investigation of Inlet Pressure and Diffuser Angle Impact on Adjustable Air Amplifier Performance</div>
+    <div class="pub-authors">E. H. Oude Essink, T. Persoons, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>THERMINIC 2022</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/parametric-investigation-of-inlet-pressure-and-diffuser-angle-imp" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2020 ===== -->
+  <h2>2020</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">The application of evolutionary algorithms in multi-objective design and optimization of air-cooled heatsinks</div>
+    <div class="pub-authors">Y. O. Abdelsalam, <strong>S. Alimohammadi</strong>, T. Persoons</div>
+    <div class="pub-venue"><em>Journal of Thermal Science and Engineering Applications</em> 12(2):021003 (Apr&nbsp;2020)</div>
+    <div class="pub-links"><a href="https://asmedigitalcollection.asme.org/thermalscienceapplication/article/12/2/021003/1071561" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">A novel linear air amplifier technology to replace rotary fans in data center server rack cooling</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, T. Persoons</div>
+    <div class="pub-venue"><em>THERMINIC 2020</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/a-novel-linear-air-amplifier-technology-to-replace-rotary-fans-in" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2019 ===== -->
+  <h2>2019</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">Experimental investigation of flow pulsation waveforms in rectangular mesochannels for high heat flux electronics cooling</div>
+    <div class="pub-authors">J. McEvoy, <strong>S. Alimohammadi</strong>, T. Persoons</div>
+    <div class="pub-venue"><em>Experimental Thermal and Fluid Science</em> 109:109885 (Dec&nbsp;2019)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1016/j.expthermflusci.2019.109885" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Multi-objective layout optimization of a generic hybrid-cooled data centre blade server</div>
+    <div class="pub-authors">A. Sakanova, <strong>S. Alimohammadi</strong>, J. McEvoy, S. Battaglioli, T. Persoons</div>
+    <div class="pub-venue"><em>Applied Thermal Engineering</em> 156:514–523 (Jun&nbsp;2019)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1016/j.applthermaleng.2019.04.088" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">A Techno-Economic Analysis of Current Cooling Techniques in Irish Data Centres</div>
+    <div class="pub-authors">L. Gibbons, B. Coyne, D. Kennedy, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>THERMINIC 2019</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/a-techno-economic-analysis-of-current-cooling-techniques-in-irish" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Correction: Validating a reduced-order model for synthetic jet actuators using CFD and experimental data</div>
+    <div class="pub-authors">T. Persoons, R. Cressall, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>Actuators</em> 8(1):16 (Feb&nbsp;2019)</div>
+    <div class="pub-links"><a href="https://doi.org/10.3390/act8010016" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <!-- ===== 2018 ===== -->
+  <h2>2018</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">Aerodynamic noise reduction using dual-jet planar air curtains</div>
+    <div class="pub-authors">K. Zhao, <strong>S. Alimohammadi</strong>, P. N. Okolo, J. Kennedy, G. J. Bennett</div>
+    <div class="pub-venue"><em>Journal of Sound and Vibration</em> 432:192–212 (Oct&nbsp;2018)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1016/j.jsv.2018.06.036" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Validating a reduced-order model for synthetic jet actuators using CFD and experimental data</div>
+    <div class="pub-authors">T. Persoons, R. Cressall, <strong>S. Alimohammadi</strong></div>
+    <div class="pub-venue"><em>Actuators</em> 7(4):67 (Sep&nbsp;2018)</div>
+    <div class="pub-links"><a href="https://doi.org/10.3390/act7040067" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Parametric analysis of laminar pulsating flow in a rectangular channel</div>
+    <div class="pub-authors">R. Blythman, <strong>S. Alimohammadi</strong>, T. Persoons, N. Jeffers, D. B. Murray</div>
+    <div class="pub-venue"><em>Heat and Mass Transfer</em> 54(8):2177–2186 (Aug&nbsp;2018)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1007/s00231-018-2337-3" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Benchmarking DES in data-centre server flow modelling using stereoscopic PIV</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, J. McEvoy, Y. Delauré, T. Persoons</div>
+    <div class="pub-venue"><em>THERMINIC 2018</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/benchmarking-the-application-of-detached-eddy-simulation-technique" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Hybrid-Cooled Data Center Server Layout Optimization for Air-Side Heat Recovery</div>
+    <div class="pub-authors">A. Sakanova, <strong>S. Alimohammadi</strong>, J. McEvoy, T. Persoons</div>
+    <div class="pub-venue"><em>THERMINIC 2018</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/hybrid-cooled-data-center-server-layout-optimization-for-air-side" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2017 ===== -->
+  <h2>2017</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">A multi-objective genetic algorithm optimisation of plate-fin heatsinks</div>
+    <div class="pub-authors">Y. O. Abdelsalam, <strong>S. Alimohammadi</strong>, Q. Pelletier, T. Persoons</div>
+    <div class="pub-venue"><em>THERMINIC 2017</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/a-multi-objective-genetic-algorithm-optimisation-of-plate-fin-hea" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Comparison of a traditional heat sink versus a vapour chamber heat sink cooled by forced convection</div>
+    <div class="pub-authors">N. Baudin, <strong>S. Alimohammadi</strong>, R. Kempers, T. Persoons</div>
+    <div class="pub-venue"><em>TFESC 2017 / IWHT 2017</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/comparison-of-a-traditional-heat-sink-versus-a-vapour-chamber-hea" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Multi-objective shape optimisation of natural-convection plate-fin heat sinks with localised heat sources</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, N. Baudin, R. Kempers, T. Persoons</div>
+    <div class="pub-venue"><em>TFESC 2017 / IWHT 2017</em></div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/multi-objective-shape-optimisation-of-natural-convection-cooled-pl" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2016 ===== -->
+  <h2>2016</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">Characterization of flow vectoring phenomenon in adjacent synthetic jets using CFD and PIV</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, E. Fanning, T. Persoons, D. B. Murray</div>
+    <div class="pub-venue"><em>Computers &amp; Fluids</em> 140:232–246 (Nov&nbsp;2016)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1016/j.compfluid.2016.09.022" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <!-- ===== 2015 ===== -->
+  <h2>2015</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">On the numerical-experimental analysis and scaling of convective heat transfer to pulsating impinging jets</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, D. B. Murray, T. Persoons</div>
+    <div class="pub-venue"><em>International Journal of Thermal Sciences</em> 98:296–311 (Aug&nbsp;2015)</div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/on-the-numerical-experimental-analysis-and-scaling-of-convective-h" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2014 ===== -->
+  <h2>2014</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">Experimental validation of a computational fluid dynamics methodology for transitional-flow heat-transfer characteristics of a steady impinging jet</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, D. B. Murray, T. Persoons</div>
+    <div class="pub-venue"><em>Journal of Heat Transfer</em> 136(9):091703 (Sep&nbsp;2014)</div>
+    <div class="pub-links"><a href="https://asmedigitalcollection.asme.org/heattransfer/article-abstract/136/9/091703/372672" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">A numerical-experimental study of heat transfer enhancement using unconfined steady and pulsating turbulent air jet impingement</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, T. Persoons, D. B. Murray</div>
+    <div class="pub-venue"><em>IHTC-15</em> (2014)</div>
+    <div class="pub-links"><a href="https://researchprofiles.tudublin.ie/en/publications/a-numerical-experimental-study-of-heat-transfer-enhancement-using" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <div class="pub-entry">
+    <div class="pub-title">Thermal management using pulsating jet cooling technology</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, P. Dinneen, T. Persoons, D. B. Murray</div>
+    <div class="pub-venue"><em>Journal of Physics: Conference Series</em> 525:012011 (2014)</div>
+    <div class="pub-links"><a href="https://iopscience.iop.org/article/10.1088/1742-6596/525/1/012011" target="_blank" rel="noopener">Publisher</a></div>
+  </div>
+
+  <!-- ===== 2013 ===== -->
+  <h2>2013</h2>
+
+  <div class="pub-entry">
+    <div class="pub-title">A validated numerical-experimental design methodology for a movable supersonic ejector compressor for waste-heat recovery</div>
+    <div class="pub-authors"><strong>S. Alimohammadi</strong>, T. Persoons, D. B. Murray, M. R. S. Tehrani, B. Farhanieh, J. Koehler</div>
+    <div class="pub-venue"><em>Journal of Thermal Science and Engineering Applications</em> 6(2):021001 (Oct&nbsp;2013)</div>
+    <div class="pub-links"><a href="https://doi.org/10.1115/1.4025090" target="_blank" rel="noopener">DOI</a></div>
+  </div>
+
+  <p class="small" style="margin-top:2rem">
+    Missing or new items? Send the DOI or Pure link and we’ll append them so this stays aligned with Google Scholar/Pure.
+  </p>
 </body>
 </html>
