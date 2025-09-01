@@ -1,4 +1,4 @@
-/* === Thermo-Fluids site: modern.css (layout/typography only) === */
+/* === Thermo-Fluids site: modern.css (layout/typography only, keeps original blue header) === */
 
 :root{
   --bg:#0b0c10;
@@ -12,43 +12,42 @@
   --shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
-*{ box-sizing:border-box }
-html,body{ height:100% }
-
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0;
-  background:#0b0c10;          /* page background only */
-  color:var(--text);
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+  background:#0b0c10;
+  color:var(--text) !important;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif !important;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 
-/* Layout rhythm */
-main,.container{
+/* Containers (match common class names so it takes effect) */
+main, .container, .content, .page-content{
   width:100%;
-  max-width:var(--max);
-  margin-inline:auto;
-  padding:clamp(16px,2.5vw,28px);
+  max-width:var(--max) !important;
+  margin-inline:auto !important;
+  padding:clamp(16px,2.5vw,28px) !important;
 }
-section{ margin:clamp(28px,6vw,60px) 0 }
+main section, .content section, .page-content section{
+  margin:clamp(28px,6vw,60px) 0 !important;
+}
 
-/* Type */
-h1,h2,h3{ line-height:1.2; margin:0 0 .6em }
-h1{ font-size:clamp(1.9rem,3vw + 1rem,2.6rem) }
-h2{ font-size:clamp(1.4rem,2vw + .8rem,1.9rem) }
-p{ color:var(--muted) }
+/* Typography */
+h1,h2,h3{line-height:1.2; margin:0 0 .6em}
+h1{font-size:clamp(1.9rem,3vw + 1rem,2.6rem) !important}
+h2{font-size:clamp(1.4rem,2vw + .8rem,1.9rem) !important}
+p{color:var(--muted) !important}
 
 /* Links & focus */
-a{ color:var(--text); text-decoration:none }
-a:hover{ opacity:.9 }
-a:focus{
-  outline:2px solid var(--ring);
-  outline-offset:3px; border-radius:8px;
-}
+a{color:var(--text); text-decoration:none}
+a:hover{opacity:.9}
+a:focus{outline:2px solid var(--ring); outline-offset:3px; border-radius:8px}
 
-/* Cards & grid utilities (apply by adding classes in HTML) */
+/* Cards & grid (opt-in via HTML classes, no image moves) */
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
   border:1px solid rgba(255,255,255,.08);
@@ -61,17 +60,17 @@ a:focus{
   gap:clamp(14px,2vw,22px);
   grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
 }
-.grid .card{ height:100% }
+.grid .card{height:100%}
 
 /* Media defaults */
-img{ max-width:100%; height:auto; border-radius:12px }
-figure{ margin:0 }
-figcaption{ color:var(--muted); font-size:.9rem; margin-top:.5rem }
+img{max-width:100%; height:auto; border-radius:12px}
+figure{margin:0}
+figcaption{color:var(--muted); font-size:.9rem; margin-top:.5rem}
 
-/* Tables (e.g., publications) */
-table{ width:100%; border-collapse:collapse }
-th,td{ padding:12px; border-bottom:1px solid rgba(255,255,255,.08) }
-tbody tr:hover{ background:rgba(255,255,255,.02) }
+/* Tables */
+table{width:100%; border-collapse:collapse}
+th,td{padding:12px; border-bottom:1px solid rgba(255,255,255,.08)}
+tbody tr:hover{background:rgba(255,255,255,.02)}
 
 /* Footer */
 footer{
@@ -80,7 +79,7 @@ footer{
   color:var(--muted);
 }
 
-/* Mobile tweaks (no nav overrides) */
+/* Mobile */
 @media (max-width:720px){
-  main,.container{ padding:20px }
+  main, .container, .content, .page-content{padding:20px !important}
 }
