@@ -1,4 +1,3 @@
-// Highlight active nav link (works inside /preview/)
 (function(){
   const path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav.site-nav a').forEach(a=>{
@@ -9,7 +8,6 @@
   });
 })();
 
-// Reveal on scroll
 (function(){
   const els = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window) || els.length === 0) {
