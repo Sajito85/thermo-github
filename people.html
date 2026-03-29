@@ -8,7 +8,7 @@
   <style>
     .person-card {
       text-align: center;
-      padding: 15px;FF
+      padding: 15px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .person-card:hover {
@@ -43,7 +43,7 @@
       color: #0056b3;
     }
     .custom-header {
-      background-color: #001f4d;
+      background-color: #003366;
       box-shadow: 0 2px 8px rgba(0, 31, 77, 0.7);
     }
     .custom-header a {
@@ -55,20 +55,50 @@
       color: #ffffff;
       text-decoration: underline;
     }
+    .header-content{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .header-logo{
+      height:80px;
+      max-width:220px;
+      object-fit:contain;
+      padding:4px;
+      background-color:#fff;
+      border-radius:2px;
+    }
+    .header-text{
+      flex:1 1 320px;
+      text-align:center;
+    }
+    @media (max-width: 768px){
+      .header-content{flex-direction:column;text-align:center;}
+      .header-logo{height:60px;margin:4px 0;}
+      .header-text{order:-1;}
+    }
   </style>
 </head>
 <body>
   <header class="custom-header text-white py-3">
-    <div class="container text-center header-text">
-      <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
-      <nav class="mt-2">
-        <a href="index.html" class="mx-2">Home</a>
-        <a href="about.html" class="mx-2">About</a>
-        <a href="research.html" class="mx-2">Research</a>
-        <a href="people.html" class="mx-2">People</a>
-        <a href="publications.html" class="mx-2">Publications</a>
-        <a href="contact.html" class="mx-2">Contact</a>
-      </nav>
+    <div class="container">
+      <div class="header-content">
+        <img src="images/LOGO_full name.jpeg" alt="TFES Logo" class="header-logo" loading="lazy" />
+        <div class="header-text">
+          <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
+          <nav class="mt-2">
+            <a href="index.html" class="mx-2">Home</a>
+            <a href="about.html" class="mx-2">About</a>
+            <a href="research.html" class="mx-2">Research</a>
+            <a href="people.html" class="mx-2">People</a>
+            <a href="publications.html" class="mx-2">Publications</a>
+            <a href="contact.html" class="mx-2">Contact</a>
+          </nav>
+        </div>
+        <img src="images/TUD_RGB.png" alt="TU Dublin Logo" class="header-logo" loading="lazy" />
+      </div>
     </div>
   </header>
 
@@ -97,21 +127,8 @@
           <h5><a href="robiul.html">Dr Robiul Hossain</a></h5>
           <p>Senior Research Assistant</p>
           <div class="links">
-            <a href="mailto: mdrobiul.hossain@tudublin.ie">Email</a>
+            <a href="mailto:mdrobiul.hossain@tudublin.ie">Email</a>
             <a href="https://www.researchgate.net/profile/Md-Robiul-Hossain" target="_blank" rel="noopener">ResearchGate</a>
-          </div>
-        </div>
-      </div>
-
-            <!-- Postdoctoral Researcher -->
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="person-card">
-          <img src="images/stephen lee.jpeg" alt="Photo of Stephen Lee">
-          <h5><a href="stephen.html">Dr Stephen Lee</a></h5>
-          <p>Postdoctoral Researcher</p>
-          <div class="links">
-                        <a href="mailto:stephen.lee@tudublin.ie">Email</a>
-            <a href="https://www.researchgate.net/profile/Stephen-Lee-74" target="_blank" rel="noopener">ResearchGate</a>
           </div>
         </div>
       </div>
@@ -119,17 +136,31 @@
       <!-- Postdoctoral Researcher -->
       <div class="col-md-4 col-sm-6 mb-4">
         <div class="person-card">
+          <img src="images/stephen lee.jpeg" alt="Photo of Stephen Lee">
+          <h5><a href="stephen.html">Dr Stephen Lee</a></h5>
+          <p>Postdoctoral Researcher</p>
+          <div class="links">
+            <a href="mailto:stephen.lee@tudublin.ie">Email</a>
+            <a href="https://www.researchgate.net/profile/Stephen-Lee-74" target="_blank" rel="noopener">ResearchGate</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Fellow -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="person-card">
           <img src="images/Sahan.webp" alt="Photo of Sahan Wasala">
-         <h5><a href="sahan.html">Dr Sahan Wasala</a></h5>
+          <h5><a href="sahan.html">Dr Sahan Wasala</a></h5>
           <p>Research Fellow (TCD-TU Dublin)</p>
           <div class="links">
+            <a href="mailto:Sahan.Wasala@tcd.ie">Email</a>
             <a href="https://scholar.google.com/citations?user=CrYpegYAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
             <a href="https://www.linkedin.com/in/sahanwasala" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
       </div>
-      
-      <!-- Fulbright Scholar / PhD Researcher-->
+
+      <!-- Fulbright Scholar / PhD Researcher -->
       <div class="col-md-4 col-sm-6 mb-4">
         <div class="person-card">
           <img src="images/EOE.jpg" alt="Photo of Eoin Oude Essink">
@@ -168,18 +199,19 @@
         </div>
       </div>
 
-      <!-- PhD Researcher -->
+      <!-- PhD Candidate -->
       <div class="col-md-4 col-sm-6 mb-4">
         <div class="person-card">
           <img src="images/younis-abdelsalam-edited (1).jpg" alt="Photo of Younis Abdelsalam">
           <h5><a href="younis.html">Younis Abdelsalam</a></h5>
-          <p>PhD Candidate</p>
+          <p>PhD Researcher</p>
           <div class="links">
             <a href="mailto:D20127546@mytudublin.ie">Email</a>
             <a href="https://www.linkedin.com/in/yoa" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
       </div>
+
       <!-- PhD Researcher -->
       <div class="col-md-4 col-sm-6 mb-4">
         <div class="person-card">
@@ -206,7 +238,6 @@
         </div>
       </div>
 
-      <!-- Add more people with the same pattern -->
     </div>
   </div>
 </body>
