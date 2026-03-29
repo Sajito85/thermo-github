@@ -34,20 +34,35 @@
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
     }
+
+    .header-content{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    .header-logo{height:80px;max-width:220px;object-fit:contain;padding:4px;background-color:#fff;border-radius:2px;}
+    .header-text{flex:1 1 320px;text-align:center;}
+    @media (max-width: 768px){
+      .header-content{flex-direction:column;text-align:center;}
+      .header-logo{height:60px;margin:4px 0;}
+      .header-text{order:-1;}
+    }
   </style>
 </head>
 <body>
   <header class="bg-dark text-white py-3">
-    <div class="container header-text">
-      <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
-      <nav class="mt-2">
-        <a href="index.html" class="mx-2">Home</a>
-        <a href="about.html" class="mx-2">About</a>
-        <a href="research.html" class="mx-2">Research</a>
-        <a href="people.html" class="mx-2">People</a>
-        <a href="publications.html" class="mx-2">Publications</a>
-        <a href="contact.html" class="mx-2">Contact</a>
-      </nav>
+    <div class="container">
+      <div class="header-content">
+        <img src="images/LOGO_full name.jpeg" alt="TFES Logo" class="header-logo" loading="lazy" />
+        <div class="header-text">
+          <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
+          <nav class="mt-2">
+            <a href="index.html" class="mx-2">Home</a>
+            <a href="about.html" class="mx-2">About</a>
+            <a href="research.html" class="mx-2">Research</a>
+            <a href="people.html" class="mx-2">People</a>
+            <a href="publications.html" class="mx-2">Publications</a>
+            <a href="contact.html" class="mx-2">Contact</a>
+          </nav>
+        </div>
+        <img src="images/TUD_RGB.png" alt="TU Dublin Logo" class="header-logo" loading="lazy" />
+      </div>
     </div>
   </header>
 
