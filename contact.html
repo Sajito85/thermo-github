@@ -17,8 +17,29 @@
 
     header {
       background: rgba(255, 255, 255, 0.1);
-      padding: 30px 20px;
-      text-align: center;
+      padding: 20px;
+    }
+
+    .header-content{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .header-logo{
+      height:80px;
+      max-width:220px;
+      object-fit:contain;
+      padding:4px;
+      background-color:#fff;
+      border-radius:2px;
+    }
+    .header-text{
+      flex:1 1 320px;
+      text-align:center;
     }
 
     header h1 {
@@ -105,6 +126,11 @@
     }
 
     @media (max-width: 768px) {
+      .header-content{flex-direction:column;text-align:center;}
+      .header-logo{height:60px;margin:4px 0;}
+      .header-text{order:-1;}
+      header h1{font-size:1.8rem;}
+
       .main-content {
         flex-direction: column;
         text-align: center;
@@ -120,15 +146,21 @@
 <body>
 
   <header>
-    <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
-      <a href="people.html">People</a>
-      <a href="publications.html">Publications</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="header-content">
+      <img src="images/LOGO_full name.jpeg" alt="TFES Logo" class="header-logo" loading="lazy" />
+      <div class="header-text">
+        <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="research.html">Research</a>
+          <a href="people.html">People</a>
+          <a href="publications.html">Publications</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <img src="images/TUD_RGB.png" alt="TU Dublin Logo" class="header-logo" loading="lazy" />
+    </div>
   </header>
 
   <main>
@@ -139,23 +171,23 @@
       </div>
       <div class="contact-box">
         <p><strong>General Inquiries:</strong> <a href="mailto:info@thermo-fluidsgroup.com">info@thermo-fluidsgroup.com</a></p>
-        <p><strong>Group Lead:</strong> <a href="mailto:sajad.alimohammadi@thermo-fluidsgroup.com">sajad.alimohammadi@thermo-fluidsgroup.com</a></p>
+        <p><strong>Group Lead:</strong> <a href="mailto:sajad.alimohammadi@tudublin.ie">sajad.alimohammadi@tudublin.ie</a></p>
         <p><strong>Location:</strong><br>
           Thermo-Fluids & Energy Systems (TFES) Research Group<br>
           School of Mechanical and Design Engineering<br>
-         TU Dublin, Bolton Street Campus<br>
+          TU Dublin, Bolton Street Campus<br>
           Dublin 1, D01 K822<br>
         </p>
         <p><strong>Social:</strong>
-          <a href="#">LinkedIn</a> |
-          <a href="#">Google Scholar</a>
+          <a href="https://scholar.google.com/citations?user=qVAzBjwAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> |
+          <a href="https://researchprofiles.tudublin.ie/en/persons/sajad-alimohammadi-2" target="_blank" rel="noopener">TU Dublin Research Profile</a>
         </p>
       </div>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Thermo-Fluids & Energy Systems (TFES) Research Group – Technological University Dublin
+    &copy; 2026 Thermo-Fluids & Energy Systems (TFES) Research Group - Technological University Dublin
   </footer>
 
 </body>
