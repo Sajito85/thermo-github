@@ -175,8 +175,23 @@
       p{text-align:left;}
     }
 
+img, video{max-width:100%;height:auto;}
+    main a{color:#0366d6; text-decoration:underline;}
+    main a:hover{color:#024ea2;}
     main li img{max-width:100%; max-height:400px; width:auto; object-fit:contain;}
-    main a:hover{color:#024ea2;} 
+    @media (max-width: 480px){
+      main li img{max-height:250px;}
+    }
+```
+
+Then also on the same page, find:
+```
+images/Royal_Irish_Academy_055.jpg.png
+```
+
+Change to:
+```
+images/Royal_Irish_Academy_055.jpg
   </style>
 </head>
 <body>
