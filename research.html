@@ -35,6 +35,28 @@
       z-index: 1000;
     }
 
+    .header-content{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .header-logo{
+      height:80px;
+      max-width:220px;
+      object-fit:contain;
+      padding:4px;
+      background-color:#fff;
+      border-radius:2px;
+    }
+    .header-text{
+      flex:1 1 320px;
+      text-align:center;
+    }
+
     nav {
       margin-top: 10px;
     }
@@ -48,7 +70,7 @@
 
     h2 {
       font-size: 2em;
-      margin-top: 120px; /* push content down under fixed header */
+      margin-top: 160px;
       margin-bottom: 30px;
     }
 
@@ -72,6 +94,11 @@
       margin-top: 50px;
     }
 
+    .collaborators a{
+      color:#0366d6;
+      text-decoration:underline;
+    }
+
     .logos {
       display: flex;
       flex-wrap: wrap;
@@ -83,6 +110,13 @@
     .logos img {
       max-height: 60px;
       object-fit: contain;
+    }
+
+    @media (max-width: 768px){
+      .header-content{flex-direction:column;text-align:center;}
+      .header-logo{height:60px;margin:4px 0;}
+      .header-text{order:-1;}
+      h2{margin-top:200px;}
     }
 
     @media (max-width: 600px) {
@@ -102,21 +136,27 @@
 </head>
 <body>
   <header>
-    <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
-      <a href="people.html">People</a>
-      <a href="publications.html">Publications</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="header-content">
+      <img src="images/LOGO_full name.jpeg" alt="TFES Logo" class="header-logo" loading="lazy" />
+      <div class="header-text">
+        <h1>Thermo-Fluids & Energy Systems (TFES) Research Group</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="research.html">Research</a>
+          <a href="people.html">People</a>
+          <a href="publications.html">Publications</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <img src="images/TUD_RGB.png" alt="TU Dublin Logo" class="header-logo" loading="lazy" />
+    </div>
   </header>
 
   <main>
     <h2>Research Projects</h2>
 
-<article>
+    <article>
       <h3>Data Centre Thermal Management</h3>
       <p>We develop advanced cooling strategies for data centre servers, combining high-fidelity CFD with experimental techniques such as PIV and infrared thermography. Our work spans synthetic jet arrays, liquid cooling architectures, waste heat recovery, and energy modelling to reduce the environmental footprint of digital infrastructure.</p>
     </article>
@@ -136,20 +176,19 @@
       <p>Our work in this area covers turbulent boundary layers, jet impingement heat transfer, aero-acoustics, and indoor environmental quality including soundscape assessment. We use both computational and experimental approaches to characterise complex flow and acoustic fields.</p>
     </article>
 
-<section class="collaborators">
+    <section class="collaborators">
       <p style="text-align:center; font-size:1.1em;"><strong>Based at <a href="https://www.tudublin.ie" target="_blank" rel="noopener">Technological University Dublin</a></strong>, School of Mechanical and Design Engineering, Bolton Street Campus</p>
       <div class="logos" style="margin-bottom:30px;">
         <img src="images/TUD_RGB.png" alt="TU Dublin" />
       </div>
-      <h2>Academic Collaborators</h2>
-  
+      <h2 style="margin-top:20px;">Academic Collaborators</h2>
       <div class="logos">
         <img src="images/TrinityCD.png" alt="Trinity College Dublin Logo" />
         <img src="images/WK_UCD-1024x683.jpg" alt="University College Dublin Logo" />
         <img src="images/university-college-cork-ucc-logo-vector.png" alt="University College Cork Logo" />
         <img src="images/University_of_Galway_logo_2022.png" alt="University of Galway Logo" />
       </div>
-      <h2>Funding and Industry Partners</h2>
+      <h2 style="margin-top:20px;">Funding and Industry Partners</h2>
       <div class="logos">
         <img src="images/SEAI.png" alt="SEAI Logo" />
         <img src="images/MaREI_300.png" alt="MaREI Logo" />
