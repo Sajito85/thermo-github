@@ -43,6 +43,15 @@
       font-size: 1.8em;
     }
 
+    .header-content{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    .header-logo{height:100px;max-width:280px;object-fit:contain;padding:5px;background-color:#fff;border-radius:2px;}
+    .header-text{flex:1 1 320px;text-align:center;}
+    @media (max-width: 768px){
+      .header-content{flex-direction:column;text-align:center;}
+      .header-logo{height:80px;margin:6px 0;}
+      .header-text{order:-1;}
+    }
+
     nav {
       margin-top: 10px;
     }
