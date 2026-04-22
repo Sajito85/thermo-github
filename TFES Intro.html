@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TFES – Intro</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; background: #000; overflow: hidden; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+  #stage {
+    position: fixed; inset: 0;
+    background: #050810;
+    z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.9s ease;
+  }
+  #stage.fade-out { opacity: 0; pointer-events: none; }
+
+  canvas#fluid {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* ── overlay text ── */
+  .center {
+    position: relative; z-index: 2;
+    text-align: center;
+    user-select: none;
+  }
+
+  .abbrev {
+    font-size: clamp(60px, 12vw, 140px);
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: #fff;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,1.4,.5,1);
+    text-shadow: 0 0 60px rgba(0,200,255,0.35), 0 0 120px rgba(0,200,255,0.15);
+  }
+  .abbrev.show { opacity: 1; transform: scale(1); }
+
+  .divider {
+    width: 0; height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(255,120,30,0.8), transparent);
+    margin: 18px auto;
+    transition: width 1.1s cubic-bezier(.4,0,.2,1);
+  }
+  .divider.show { width: min(480px, 60vw); }
+
+  .full-name {
+    font-size: clamp(13px, 2.2vw, 22px);
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;
+  }
+  .full-name.show { opacity: 1; transform: translateY(0); }
+
+  .tagline {
+    margin-top: 28px;
+    font-size: clamp(11px, 1.5vw, 15px);
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.45);
+    max-width: min(600px, 80vw);
+    line-height: 1.65;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .tagline.show { opacity: 1; transform: translateY(0); }
+
+  .tu-badge {
+    margin-top: 40px;
+    font-size: clamp(10px, 1.1vw, 12px);
+    letter-spacing: 0.22em;
+    color: rgba(255,255,255,0.22);
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .tu-badge.show { opacity: 1; }
+
+  /* skip button */
+  #skip-btn {
+    position: absolute; bottom: 28px; right: 32px; z-index: 10;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.4);
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 7px 16px; border-radius: 20px;
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  #skip-btn:hover { border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.8); }
+
+  /* corner heat gradient glows */
+  .glow-tr {
+    position: absolute; top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,90,20,0.18) 0%, transparent 70%);
+    pointer-events: none; z-index: 1;
+    opacity: 0; transition: opacity 2s ease;
+  }
+  .glow-bl {
+    position: absolute; bottom: -80px; left: -80px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(0,190,255,0.14) 0%, transparent 70%);
+    pointer-events: none; z-index: 1;
+    opacity: 0; transition: opacity 2s ease;
+  }
+  .glow-tr.show, .glow-bl.show { opacity: 1; }
+
+  /* progress bar */
+  #progress {
+    position: absolute; bottom: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(0,200,255,0.6), rgba(255,100,20,0.8));
+    width: 0%;
+    transition: width 0.1s linear;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <canvas id="fluid"></canvas>
+
+  <div class="glow-tr" id="glow-tr"></div>
+  <div class="glow-bl" id="glow-bl"></div>
+
+  <div class="center">
+    <div class="abbrev" id="abbrev">TFES</div>
+    <div class="divider" id="divider"></div>
+    <div class="full-name" id="full-name">Thermo‑Fluids &amp; Energy Systems</div>
+    <div class="tagline" id="tagline">
+      Exploring Thermo-Fluids for Smarter Energy Systems<br>and a Sustainable Digital World
+    </div>
+    <div class="tu-badge" id="tu-badge">Technological University Dublin</div>
+  </div>
+
+  <button id="skip-btn">Skip ›</button>
+  <div id="progress"></div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────
+//  FLUID PARTICLE SIMULATION
+// ─────────────────────────────────────────────────
+const canvas = document.getElementById('fluid');
+const ctx = canvas.getContext('2d');
+let W, H;
+
+function resize() {
+  W = canvas.width  = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', () => { resize(); initParticles(); });
+
+// ── Smooth noise (simple 2D value noise with bilinear interp) ──
+const NOISE_SIZE = 256;
+const noiseTable = new Float32Array(NOISE_SIZE * NOISE_SIZE);
+(function seedNoise() {
+  for (let i = 0; i < noiseTable.length; i++) noiseTable[i] = Math.random() * 2 * Math.PI;
+})();
+
+function noise(x, y) {
+  const xi = Math.floor(x) & (NOISE_SIZE - 1);
+  const yi = Math.floor(y) & (NOISE_SIZE - 1);
+  const fx = x - Math.floor(x);
+  const fy = y - Math.floor(y);
+  const ux = fx * fx * (3 - 2 * fx);
+  const uy = fy * fy * (3 - 2 * fy);
+  const a = noiseTable[ yi      * NOISE_SIZE + xi     ];
+  const b = noiseTable[ yi      * NOISE_SIZE + (xi+1) % NOISE_SIZE];
+  const c = noiseTable[(yi+1)%NOISE_SIZE * NOISE_SIZE + xi     ];
+  const d = noiseTable[(yi+1)%NOISE_SIZE * NOISE_SIZE + (xi+1) % NOISE_SIZE];
+  return a + (b-a)*ux + (c-a)*uy + (d+a-b-c)*ux*uy;
+}
+
+// ── Flow field ──
+const FIELD_SCALE = 0.0025;
+const TIME_SCALE  = 0.00018;
+let   fieldTime   = 0;
+
+function flowAngle(x, y, t) {
+  // Two-octave noise for turbulence
+  const n1 = noise(x * FIELD_SCALE * 1.0 + t * 0.7, y * FIELD_SCALE * 1.0 + t * 0.5);
+  const n2 = noise(x * FIELD_SCALE * 2.3 - t * 0.4, y * FIELD_SCALE * 2.3 + t * 0.9);
+  // Blend + add a large-scale sweeping motion (simulates mean flow from left)
+  const sweep = (x / W) * 0.8; // bias rightward
+  return n1 * 0.65 + n2 * 0.35 + sweep * 0.4;
+}
+
+// ── Particles ──
+const N_PARTICLES = 2200;
+let particles = [];
+
+function randColor() {
+  // Cyan ↔ orange spectrum
+  const t = Math.random();
+  if (t < 0.55) {
+    // cyan / teal
+    const l = 60 + Math.random() * 35;
+    return `hsl(${185 + Math.random()*25},100%,${l}%)`;
+  } else if (t < 0.82) {
+    // warm orange
+    const l = 52 + Math.random() * 28;
+    return `hsl(${20 + Math.random()*20},100%,${l}%)`;
+  } else {
+    // white/silver
+    return `hsl(0,0%,${80+Math.random()*20}%)`;
+  }
+}
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < N_PARTICLES; i++) {
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      age: Math.random() * 200,
+      maxAge: 120 + Math.random() * 180,
+      speed: 0.6 + Math.random() * 1.4,
+      size: 0.8 + Math.random() * 1.6,
+      color: randColor(),
+    });
+  }
+}
+initParticles();
+
+// ── Render loop ──
+let startTime = null;
+const TOTAL_DURATION = 8200; // ms — matches text timeline
+
+function frame(ts) {
+  if (!startTime) startTime = ts;
+  const elapsed = ts - startTime;
+  fieldTime += TIME_SCALE;
+
+  // fade-in overlay (trail effect)
+  ctx.fillStyle = 'rgba(5,8,16,0.18)';
+  ctx.fillRect(0, 0, W, H);
+
+  const progress = Math.min(elapsed / TOTAL_DURATION, 1);
+
+  for (let i = 0; i < N_PARTICLES; i++) {
+    const p = particles[i];
+    p.age++;
+    if (p.age > p.maxAge) {
+      // Respawn near left edge (mean flow from left)
+      p.x = Math.random() < 0.6 ? Math.random() * W * 0.15 : Math.random() * W;
+      p.y = Math.random() * H;
+      p.age = 0;
+      p.maxAge = 120 + Math.random() * 180;
+      p.speed = 0.6 + Math.random() * 1.4;
+      p.size  = 0.8 + Math.random() * 1.6;
+      p.color = randColor();
+    }
+
+    const angle = flowAngle(p.x, p.y, fieldTime);
+    const vx = Math.cos(angle) * p.speed;
+    const vy = Math.sin(angle) * p.speed * 0.65;
+
+    const lifeAlpha = Math.sin((p.age / p.maxAge) * Math.PI); // 0→1→0
+    const globalAlpha = progress < 0.12 ? progress / 0.12 : 1.0; // fade-in first 1s
+
+    ctx.globalAlpha = lifeAlpha * 0.55 * globalAlpha;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.x += vx;
+    p.y += vy;
+
+    // Wrap edges
+    if (p.x < -2) p.x = W + 2;
+    if (p.x > W + 2) p.x = -2;
+    if (p.y < -2) p.y = H + 2;
+    if (p.y > H + 2) p.y = -2;
+  }
+  ctx.globalAlpha = 1;
+
+  if (!dismissed) {
+    requestAnimationFrame(frame);
+  }
+}
+requestAnimationFrame(frame);
+
+// ─────────────────────────────────────────────────
+//  TEXT TIMELINE
+// ─────────────────────────────────────────────────
+let dismissed = false;
+
+function show(id, delay) {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('show');
+  }, delay);
+}
+
+show('glow-tr',  400);
+show('glow-bl',  800);
+show('abbrev',   600);
+show('divider',  1200);
+show('full-name',1700);
+show('tagline',  2700);
+show('tu-badge', 3500);
+
+// Progress bar
+const progressBar = document.getElementById('progress');
+let progStart = Date.now();
+const TOTAL_MS = 8200;
+function tickProgress() {
+  if (dismissed) return;
+  const pct = Math.min((Date.now() - progStart) / TOTAL_MS * 100, 100);
+  progressBar.style.width = pct + '%';
+  requestAnimationFrame(tickProgress);
+}
+tickProgress();
+
+// Auto-dismiss
+setTimeout(dismiss, TOTAL_MS);
+
+document.getElementById('skip-btn').addEventListener('click', dismiss);
+
+function dismiss() {
+  if (dismissed) return;
+  dismissed = true;
+  const stage = document.getElementById('stage');
+  stage.classList.add('fade-out');
+  setTimeout(() => {
+    stage.style.display = 'none';
+    // Tell the parent page to remove this iframe
+    window.parent.postMessage('tfes-intro-done', '*');
+  }, 950);
+}
+
+// Persist: don't show intro again this session
+if (sessionStorage.getItem('tfes-intro-shown')) {
+  // Comment this out during development if you want it every time
+  // dismiss();
+}
+sessionStorage.setItem('tfes-intro-shown', '1');
+</script>
+
+</body>
+</html>
