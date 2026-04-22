@@ -273,5 +273,13 @@
   </footer>
 <!-- TFES Intro Animation -->
 <iframe src="TFES Intro.html" style="position:fixed;inset:0;width:100%;height:100%;border:none;z-index:9999;" id="intro-frame"></iframe>
-</body>
+<script>
+  window.addEventListener('message', function(e) {
+    if (e.data === 'tfes-intro-done') {
+      var f = document.getElementById('intro-frame');
+      if (f) f.remove();
+    }
+  });
+</script>
+  </body>
 </html>
